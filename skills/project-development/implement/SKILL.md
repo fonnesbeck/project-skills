@@ -33,6 +33,7 @@ Use `marimo-notebook`, `model-plan-discovery`, `pymc-modeling`, `prior-elicitati
 3. Confirm the implementation seam.
    - Use the highest stable seam available.
    - For dual-track projects, keep exploration/reporting in marimo and reusable logic in Python modules.
+   - For Python tabular-data work, prefer Polars over pandas unless the repo already standardizes on pandas or the task requires pandas.
 4. Write or update tests/checks first when feasible.
    - Use behavior tests for transformations and reusable modules.
    - Use smoke checks for notebooks or pipelines.
