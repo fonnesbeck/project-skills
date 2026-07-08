@@ -1,0 +1,41 @@
+{
+  "skill_name": "project-skills",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Use scoping for a project where I have a CSV of patient appointment history and want a marimo notebook that explains no-show patterns for clinic managers. I am not sure whether this is just exploratory analysis or a model-building project.",
+      "expected_output": "The agent should infer a research notebook or analysis/modeling class, ask the user to confirm, ask one scoping question at a time, and capture data/privacy/leakage concerns before proposing a spec.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Use scoping for a project where we need a daily batch model that predicts customer churn, writes scores to a warehouse table, and has a dashboard for monitoring drift.",
+      "expected_output": "The agent should infer end-to-end ML product, confirm that classification, identify deployment and monitoring concerns, and record data governance and reproducibility risks.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Use project-spec on this scoped conversation: we are building a Bayesian hierarchical model in PyMC for store-level demand, with partial pooling by region, weekly seasonality, posterior predictive checks, and LOO comparison against a pooled baseline.",
+      "expected_output": "The agent should invoke or require PyMC/model-evaluation guidance, write a spec with priors, sampling, posterior predictive checks, diagnostics, log likelihood, and LOO/ELPD comparison decisions.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Use create-tasks for a spec that includes data access, schema profiling, a baseline marimo notebook, reusable feature engineering code, model fitting, metric reporting, and a final reproducibility review.",
+      "expected_output": "The agent should create blocked tasks that prefer vertical tracer bullets but allow data access, schema profiling, baseline notebook, and reproducibility setup as prerequisite tasks.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Use implement for the task: add a tested function that validates a Polars data frame has the columns needed for a downstream model, then smoke-test the marimo notebook that calls it.",
+      "expected_output": "The agent should execute only the named task, write or update behavior tests first where feasible, implement the function, run targeted tests and notebook smoke checks, and report evidence.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Use project-review on a completed PyMC modeling task that changed model code, generated posterior predictions, and updated a report, comparing the branch to main.",
+      "expected_output": "The agent should review code quality and reproducibility, add Bayesian diagnostics and scientific validity axes, keep findings separated, and write a durable review report.",
+      "files": []
+    }
+  ]
+}
