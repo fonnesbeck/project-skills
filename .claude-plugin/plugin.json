@@ -1,0 +1,11 @@
+{
+  "name": "project-skills",
+  "skills": [
+    "./skills/project-development/setup-project-skills",
+    "./skills/project-development/scoping",
+    "./skills/project-development/project-spec",
+    "./skills/project-development/create-tasks",
+    "./skills/project-development/implement",
+    "./skills/project-development/project-review"
+  ]
+}
