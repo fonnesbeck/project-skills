@@ -1,0 +1,17 @@
+{
+  "name": "project-skills",
+  "version": "0.1.0",
+  "description": "OMP-native data science project development skills",
+  "license": "MIT",
+  "keywords": [
+    "omp-plugin",
+    "skills",
+    "data-science",
+    "project-development"
+  ],
+  "omp": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}

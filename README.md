@@ -37,6 +37,22 @@ evals/
 
 `setup-project-skills` can override these paths for a repo.
 
+## Install
+
+For local development, link this repo into OMP:
+
+```sh
+omp plugin link /var/home/fonnesbeck/repos/project-skills
+```
+
+Restart OMP after linking so skill discovery reloads. Verify with:
+
+```sh
+omp plugin list
+```
+
+The plugin package is defined by `package.json`; OMP discovers the skills from the `omp.skills` entry pointing at `./skills`.
+
 ## oh-my-pi integration
 
 The skills are written for oh-my-pi sessions. They refer to OMP-native tools and coordination patterns such as `read`, `grep`, `glob`, `todo`, `task`, `job`, `irc`, `lsp`, `edit`, `write`, local artifacts, and existing domain skills.

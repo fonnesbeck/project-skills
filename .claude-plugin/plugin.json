@@ -1,11 +1,14 @@
 {
   "name": "project-skills",
+  "description": "OMP-native data science project development skills",
+  "version": "0.1.0",
+  "license": "MIT",
   "skills": [
-    "./skills/project-development/setup-project-skills",
-    "./skills/project-development/scoping",
-    "./skills/project-development/project-spec",
-    "./skills/project-development/create-tasks",
-    "./skills/project-development/implement",
-    "./skills/project-development/project-review"
+    "./skills/setup-project-skills",
+    "./skills/scoping",
+    "./skills/project-spec",
+    "./skills/create-tasks",
+    "./skills/implement",
+    "./skills/project-review"
   ]
 }
