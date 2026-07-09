@@ -18,6 +18,22 @@ If the prompt involves statistical, Bayesian, ML, or data-science modeling plans
 
 If the prompt involves PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, diagnostics, or model comparison, also use `pymc-modeling` before responding further.
 
+## Stage ownership
+
+When invoked as `/scoping`, this skill exclusively owns the scoping stage.
+Do not invoke or follow generic brainstorming, planning, specification,
+task-breakdown, or implementation workflows.
+
+Use only the domain-specific skills required to answer the user’s actual
+question, including the skills named in Required background. Those skills
+provide subject-matter guidance only; they do not choose artifact paths or
+replace this scoping process.
+
+During `/scoping`, do not create a project spec, task file, implementation
+plan, or review. Continue to the next project-skills stage only when this
+skill has reached its stop condition and the user explicitly invokes or
+approves that stage.
+
 ## Process
 
 1. Explore repo context first.
@@ -50,7 +66,10 @@ If the prompt involves PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, d
    - If the path to `project-spec` is clear, say so.
    - If not, list investigation tasks that would clear the fog.
 7. Stop after scoping.
-   - Do not write the project spec unless the user invokes or approves `project-spec`.
+   - Follow the Stage ownership boundary.
+   - Do not write the project spec unless the user invokes or approves
+     `project-spec`.
+   - Do not create a task breakdown or implementation plan.
 
 ## Question discipline
 
