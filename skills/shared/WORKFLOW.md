@@ -12,11 +12,12 @@ A project-skills command owns its active workflow stage. It determines the
 questions to ask, the artifacts it may create, and the condition for moving
 to the next stage.
 
-Do not invoke or follow a generic brainstorming, planning, specification,
-task-breakdown, or implementation workflow while a project-skills stage is
-active. Domain-specific skills may be used only for their subject-matter
-guidance; they must not replace the active stage, select an artifact path,
-or advance the workflow.
+While a project-skills stage is active, other skills — including generic
+brainstorming, planning, specification, task-breakdown, or implementation
+workflows — may be invoked when their guidance is needed, but the stage is
+never handed off to them. They do not take process control, select an
+artifact path, replace the active stage, or advance the workflow.
+Domain-specific skills likewise supply subject-matter guidance only.
 
 A stage may create only the artifacts named by that stage. In particular,
 `scoping` does not create a project spec, task file, implementation plan, or

@@ -21,13 +21,14 @@ If the prompt involves PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, d
 ## Stage ownership
 
 When invoked as `/scoping`, this skill exclusively owns the scoping stage.
-Do not invoke or follow generic brainstorming, planning, specification,
-task-breakdown, or implementation workflows.
+Other skills — including generic brainstorming, planning, specification,
+task-breakdown, or implementation workflows — may be invoked when their
+guidance helps answer the user’s actual question, but never hand the scoping
+stage off to them.
 
-Use only the domain-specific skills required to answer the user’s actual
-question, including the skills named in Required background. Those skills
-provide subject-matter guidance only; they do not choose artifact paths or
-replace this scoping process.
+Skills invoked during scoping, including those named in Required background,
+provide subject-matter guidance only; they do not take process control,
+choose artifact paths, or replace this scoping process.
 
 During `/scoping`, do not create a project spec, task file, implementation
 plan, or review. Continue to the next project-skills stage only when this
