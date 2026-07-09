@@ -6,6 +6,24 @@ This reference is shared by the project-development skills.
 
 This plugin is derived from Matt Pocock's `mattpocock/skills` repository under the MIT License. The adapted source skills are `setup-matt-pocock-skills`, `grill-with-docs`, `wayfinder`, `to-spec`, `to-tickets`, `implement`, and `code-review`.
 
+## Workflow stage ownership
+
+A project-skills command owns its active workflow stage. It determines the
+questions to ask, the artifacts it may create, and the condition for moving
+to the next stage.
+
+Do not invoke or follow a generic brainstorming, planning, specification,
+task-breakdown, or implementation workflow while a project-skills stage is
+active. Domain-specific skills may be used only for their subject-matter
+guidance; they must not replace the active stage, select an artifact path,
+or advance the workflow.
+
+A stage may create only the artifacts named by that stage. In particular,
+`scoping` does not create a project spec, task file, implementation plan, or
+review. Those artifacts belong respectively to `project-spec`,
+`create-tasks`, `implement`, and `project-review` after their required
+approval gates.
+
 ## Project classes
 
 Every project is classified as one of:

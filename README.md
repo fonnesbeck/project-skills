@@ -11,6 +11,11 @@ An oh-my-pi-native plugin for developing data science projects from vague idea t
 5. `implement` executes one approved task at a time.
 6. `project-review` reviews completed work across code quality, reproducibility, and adaptive data-science axes.
 
+Each command owns only its named stage. While a command is active, generic
+workflows must not choose artifacts or advance the project; use the next
+project-skills command only after the current command reaches its documented
+stop condition.
+
 ## Project classes
 
 The workflow supports three project classes:
