@@ -1,10 +1,10 @@
 ---
-name: setup-project-skills
+name: project-skills-setup
 description: Use when configuring a repository to use the project-skills data science workflow, especially before scoping, specs, task creation, implementation, or project review in a new repo.
 disable-model-invocation: true
 ---
 
-# Setup Project Skills
+# Project Skills Setup
 
 Configure repo-local defaults for the project-skills workflow.
 

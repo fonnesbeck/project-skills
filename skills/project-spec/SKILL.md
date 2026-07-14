@@ -37,7 +37,7 @@ If the spec includes PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, dia
    - Check that data risks are explicit.
    - Check that testing seams are named.
    - Check that out-of-scope work is explicit.
-6. Ask the user to review the spec before `create-tasks`.
+6. Ask the user to review the spec before `project-tasks`.
 
 ## Spec template
 

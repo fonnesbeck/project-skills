@@ -4,11 +4,11 @@ An oh-my-pi-native plugin for developing data science projects from vague idea t
 
 ## Workflow
 
-1. `setup-project-skills` configures repo-local defaults.
-2. `scoping` turns a vague idea into a scoped project direction.
+1. `project-skills-setup` configures repo-local defaults.
+2. `project-scoping` turns a vague idea into a scoped project direction.
 3. `project-spec` writes the formal project spec.
-4. `create-tasks` breaks the spec into blocked, agent-sized tasks.
-5. `implement` executes one approved task at a time.
+4. `project-tasks` breaks the spec into blocked, agent-sized tasks.
+5. `project-implement` executes one approved task at a time.
 6. `project-review` reviews completed work across code quality, reproducibility, and adaptive data-science axes.
 
 Each command owns only its named stage. While a command is active, generic
@@ -24,7 +24,7 @@ The workflow supports three project classes:
 - Analysis/modeling projects.
 - End-to-end ML products.
 
-`scoping` infers the class from the user's goal, artifacts, data risks, and implementation needs, then asks the user to confirm or correct it.
+`project-scoping` infers the class from the user's goal, artifacts, data risks, and implementation needs, then asks the user to confirm or correct it.
 
 ## Defaults
 
@@ -40,7 +40,7 @@ docs/project-skills/reviews/
 evals/
 ```
 
-`setup-project-skills` can override these paths for a repo.
+`project-skills-setup` can override these paths for a repo.
 
 ## Install
 

@@ -20,10 +20,10 @@ artifact path, replace the active stage, or advance the workflow.
 Domain-specific skills likewise supply subject-matter guidance only.
 
 A stage may create only the artifacts named by that stage. In particular,
-`scoping` does not create a project spec, task file, implementation plan, or
-review. Those artifacts belong respectively to `project-spec`,
-`create-tasks`, `implement`, and `project-review` after their required
-approval gates.
+`project-scoping` does not create a project spec, task file, implementation
+plan, or review. Those artifacts belong respectively to `project-spec`,
+`project-tasks`, `project-implement`, and `project-review` after their
+required approval gates.
 
 ## Project classes
 

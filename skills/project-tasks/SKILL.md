@@ -1,10 +1,10 @@
 ---
-name: create-tasks
+name: project-tasks
 description: Use when an approved data science project spec needs to be broken into blocked, agent-sized tasks before implementation.
 disable-model-invocation: true
 ---
 
-# Create Tasks
+# Project Tasks
 
 Break an approved project spec into blocked, agent-sized tasks.
 
@@ -35,7 +35,7 @@ Read `../shared/WORKFLOW.md` before acting.
    - Default: `docs/project-skills/tasks/YYYY-MM-DD-<short-name>-tasks.md`.
    - Use configured `tasks_dir` if present.
 6. Stop after writing tasks.
-   - Do not implement until the user invokes or approves `implement`.
+   - Do not implement until the user invokes or approves `project-implement`.
 
 ## Task file template
 

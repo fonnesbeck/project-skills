@@ -1,10 +1,10 @@
 ---
-name: scoping
+name: project-scoping
 description: Use when a data science project idea is vague, risky, multi-stage, or needs clarification before a spec, task breakdown, implementation, or review.
 disable-model-invocation: true
 ---
 
-# Scoping
+# Project Scoping
 
 Turn a vague data science idea into a scoped direction, with domain language and data assumptions captured as durable context.
 
@@ -20,7 +20,7 @@ If the prompt involves PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, d
 
 ## Stage ownership
 
-When invoked as `/scoping`, this skill exclusively owns the scoping stage.
+When invoked as `/project-scoping`, this skill exclusively owns the scoping stage.
 Other skills — including generic brainstorming, planning, specification,
 task-breakdown, or implementation workflows — may be invoked when their
 guidance helps answer the user’s actual question, but never hand the scoping
@@ -30,7 +30,7 @@ Skills invoked during scoping, including those named in Required background,
 provide subject-matter guidance only; they do not take process control,
 choose artifact paths, or replace this scoping process.
 
-During `/scoping`, do not create a project spec, task file, implementation
+During `/project-scoping`, do not create a project spec, task file, implementation
 plan, or review. Continue to the next project-skills stage only when this
 skill has reached its stop condition and the user explicitly invokes or
 approves that stage.

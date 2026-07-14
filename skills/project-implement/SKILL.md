@@ -1,10 +1,10 @@
 ---
-name: implement
-description: Use when executing one approved project-skills task for a data science project, after scoping, project-spec, and create-tasks have produced a bounded task.
+name: project-implement
+description: Use when executing one approved project-skills task for a data science project, after project-scoping, project-spec, and project-tasks have produced a bounded task.
 disable-model-invocation: true
 ---
 
-# Implement
+# Project Implement
 
 Execute one approved data science project task at a time.
 
@@ -24,7 +24,7 @@ Use `marimo-notebook`, `model-plan-discovery`, `pymc-modeling`, `prior-elicitati
 
 1. Load the task.
    - If the user gives a task path, read it.
-   - If the user gives a spec path but no task file, ask whether to run `create-tasks` first.
+   - If the user gives a spec path but no task file, ask whether to run `project-tasks` first.
    - Do not execute more than one task unless the user explicitly approves a batch.
 2. Load supporting context.
    - Read the source spec.
