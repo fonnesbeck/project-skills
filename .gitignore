@@ -3,3 +3,6 @@
 # Local skill-authoring evaluation environments and generated output
 .pixi/
 skills/*-workspace/
+
+# Local project-development artifacts
+docs/
