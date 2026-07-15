@@ -30,11 +30,12 @@ Apply this skill only if both conditions hold:
 2. The project has a declared **inferential or predictive claim** that can be
    assessed against data.
 
-Do not apply it merely because a project is data science. It is not applicable to
+Do not apply it merely because a project is data science. It cannot be used for
 descriptive analysis, reporting-only notebooks, data engineering, deterministic
-transformations, or projects without an explicit probabilistic model. State that
-it is not applicable and continue the calling stage's ordinary workflow; do not
-create a calibration record.
+transformations, or projects without an explicit probabilistic model. Identify
+the absent condition and continue the calling stage's ordinary workflow. Do not
+create or assign a calibration status, record, evidence-gate plan, diagnostic
+requirements, repair budget, or repair loop.
 
 If either condition is unclear after inspecting the project context, ask one
 question: “What explicit probability model and inferential or predictive claim

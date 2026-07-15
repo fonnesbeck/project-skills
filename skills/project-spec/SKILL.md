@@ -83,6 +83,7 @@ State the planned approach and why it fits the target and data.
 For Bayesian work, include prior strategy, sampling strategy, posterior predictive checks, diagnostics, and model comparison plan when relevant.
 
 For an eligible probabilistic-model project, include the project-calibration-repair applicability decision and a calibration plan: authorized data access; an evaluation protocol appropriate to the intended use, including leakage-safe predictive validation when the claim is predictive; model-specific diagnostic statistics and decision rules; reproducibility evidence; the `calibration_record_reference` location; and the bounded repair authority/budget.
+State that later calibration assessment consumes a versioned candidate and its fitted inference evidence, produces the separate per-candidate record, then returns control to the authorized stage for candidate creation. This stage only declares that lifecycle; do not run assessment, create a record, mutate model source, select a repair, or authorize deployment.
 
 ## Assumptions and risks
 

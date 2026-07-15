@@ -89,7 +89,7 @@
       "files": [],
       "expectations": [
         "Recognizes the supplied explicit candidate model and assessable 30-day readmission prediction, while auditing the missing authorization, leakage-safe protocol, diagnostic plan, reproducibility evidence, and repair authority/budget.",
-        "Returns `unresolved`, starts neither evaluation nor repair, and asks only for authorization or referenceable aggregate/redacted artifacts rather than raw patient rows.",
+        "Returns `unresolved`, starts neither evaluation nor repair, identifies the missing prerequisites, and does not request raw patient rows; any requested evidence is limited to authorization or referenceable aggregate/redacted artifacts.",
         "Does not invent a disease-specific diagnostic suite or a calibration verdict before the missing project prerequisites are established."
       ]
     },
@@ -168,7 +168,7 @@
       "files": [],
       "expectations": [
         "Separates an assessable predictive claim from the required explicit probabilistic model and identifies the absent model rather than inferring one from the deterministic predictor.",
-        "Creates no calibration status, record, evidence-gate plan, diagnostic requirements, repair budget, or repair loop.",
+        "Creates no calibration record, evidence-gate plan, diagnostic requirements, repair budget, or repair loop.",
         "Returns control to the ordinary calling workflow without requiring literal skill-name wording."
       ]
     }

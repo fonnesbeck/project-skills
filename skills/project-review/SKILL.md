@@ -52,6 +52,7 @@ Check documented repo standards, maintainability, naming, unnecessary abstractio
 
 Check that the work can be rerun from documented inputs with documented commands, stable environments, deterministic seeds where appropriate, and regenerated outputs when required.
 When calibration repair applies, inspect seeds, inference configuration, data/protocol version, and artifact references here.
+Do not classify missing artifact references under another review axis.
 
 ### Scientific validity
 
@@ -62,6 +63,7 @@ When calibration repair applies, inspect the suitability of the evaluation desig
 
 Check prior justification, prior predictive checks, sampler configuration, convergence diagnostics, divergences, effective sample size, posterior predictive checks, log likelihood availability for comparison, and LOO/ELPD usage when models are compared.
 When calibration repair applies, inspect inference-health findings separately from model–data misfit and confirm that prior/posterior predictive and predictive-validation evidence are appropriate to the declared model and claim.
+Do not classify missing artifact references or data authorization under Bayesian diagnostics.
 
 ### Data governance
 
