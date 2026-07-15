@@ -48,6 +48,129 @@
       "prompt": "Use /project-scoping for a Bayesian analysis project. The user asks to move directly into implementation after one answer, but has not invoked or approved project-spec.",
       "expected_output": "The agent should continue or conclude the scoping stage according to the remaining fog, state whether the project is ready for project-spec, and stop. It must not create a project spec, tasks, or implementation plan, and it must not route to a generic planning or implementation workflow.",
       "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Use project-calibration-repair for revision `poisson-store-day-r7`, which predicts next-day store demand counts. The authorized time-ordered holdout, seed, sampler settings, data version, and posterior-predictive artifacts are documented. A predeclared rule flags observed zero mass or dispersion in an extreme posterior-predictive tail. Both fail: held-out counts have excess zeros and much greater dispersion, while sampler diagnostics are healthy. The implementation stage authorizes up to two repaired revisions.",
+      "expected_output": "The skill should return a `repair_required` calibration record with reproducibility and protocol fields, identify a count-model predictive mismatch rather than sampler failure, propose only a class of modeling action, and return control for a bounded repair/re-check loop. It must not accept the model because it runs or prescribe an automatic named distributional fix.",
+      "files": [],
+      "expectations": [
+        "Produces one per-revision calibration state that binds `poisson-store-day-r7`, next-day prediction, authorized time-ordered holdout, supplied reproducibility evidence, and a two-revision ceiling.",
+        "Explicitly disposes the five evidence families: inference health passed; posterior predictive and held-out zero-mass/dispersion checks failed; prior predictive and SBC are given an explicit applicable, unavailable, or infeasible status rather than silently passed.",
+        "Links the observed count misfit to its supporting evidence and a non-prescriptive action class, preserves a bounded repair history, and never treats runnable code as acceptance."
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Use project-calibration-repair for revision `centered-clinic-r3`, a centered hierarchical PyMC model estimating clinic-level treatment effects. Access to the clinic data is authorized for this treatment-effect analysis. The authorized group-aware evaluation protocol, inferential target, diagnostic plan, data version `clinic-effects-v5`, seed `42`, sampler configuration, fitted posterior artifact `posterior-r3.nc`, posterior-predictive artifact `ppc-r3.nc`, and one-revision repair budget are documented. Posterior predictive checks are adequate, but NUTS has many divergences, r_hat above the declared limit, and weak tail ESS.",
+      "expected_output": "The skill should create an `unresolved` calibration record that treats the problem as inference health or posterior geometry, not proof of likelihood misspecification. It should preserve evidence, request an appropriate parameterization or inference-method reconsideration, and return control to the authorized calling stage without rewriting the model itself.",
+      "files": [],
+      "expectations": [
+        "Returns `unresolved` because inference health is failed by divergences, r_hat, and tail ESS, while PPC is explicitly adequate but insufficient to overcome unreliable posterior geometry.",
+        "Treats unreported prior-predictive, predictive-validation, and SBC evidence as not evaluated, unavailable, infeasible, or not applicable rather than silently passing them.",
+        "Preserves the one-revision authority for the calling stage and returns an action class without claiming likelihood misspecification or mutating source."
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Use project-calibration-repair for revision `nb-demand-r12`, a Bayesian negative-binomial model predicting next-week store demand. Access to `demand-v9` is authorized for this prediction. Its authorized time-ordered holdout protocol, intended prediction, data version `demand-v9`, seed `20260710`, sampler configuration, fitted/PPC artifact references, diagnostic rules, and zero-revision budget are documented. Prior predictive checks, sampler diagnostics, posterior predictive checks for zero mass and dispersion, and held-out predictive performance all pass their predeclared decision rules.",
+      "expected_output": "The skill should return a `calibrated` record with the evidence and applicability fields completed. It must not propose speculative rewriting, automatic model selection, causal validation, or deployment approval.",
+      "files": [],
+      "expectations": [
+        "Produces a complete applicable-evidence disposition: prior predictive, sampler health, posterior predictive, and held-out validation passed; SBC is explicitly not applicable or infeasible with rationale.",
+        "Connects `calibrated` to all applicable declared gates passing, preserves a zero-revision repair history, and gives no source-revision action.",
+        "Does not claim model selection, causal validation, or deployment approval."
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "Use project-calibration-repair for candidate revision `readmission-logit-r4`, a fitted Bayesian logistic-regression model predicting 30-day hospital readmission. I can paste raw patient rows from a restricted warehouse, but I have not established authorization for this use, a leakage-safe split, a documented diagnostic plan, reproducibility evidence, or repair authority/budget.",
+      "expected_output": "The skill should return `unresolved`, name the missing authorization, validation, diagnostic, reproducibility, and repair-authority prerequisites, and avoid requesting or echoing raw patient rows. It must not manufacture a calibration verdict or start a repair loop.",
+      "files": [],
+      "expectations": [
+        "Recognizes the supplied explicit candidate model and assessable 30-day readmission prediction, while auditing the missing authorization, leakage-safe protocol, diagnostic plan, reproducibility evidence, and repair authority/budget.",
+        "Returns `unresolved`, starts neither evaluation nor repair, and asks only for authorization or referenceable aggregate/redacted artifacts rather than raw patient rows.",
+        "Does not invent a disease-specific diagnostic suite or a calibration verdict before the missing project prerequisites are established."
+      ]
+    },
+    {
+      "id": 13,
+      "prompt": "Use project-calibration-repair for a high-dimensional Bayesian spatial model. Its source revision, authorized data, seeds, sampler configuration, and PPC plan are documented, but there is no defensible holdout or pointwise predictive-validation protocol for the intended forecast claim. Simulation-based calibration would require prohibitively many refits and is infeasible.",
+      "expected_output": "The skill should document SBC as infeasible, use any applicable evidence without treating SBC as sufficient, and return `unresolved` because required predictive evidence is inadequate. It must record the limitation instead of declaring a pass from runnable code, PPCs alone, or sampler health.",
+      "files": [],
+      "expectations": [
+        "Records prior-predictive, inference-health, and PPC results as not evaluated because the prompt supplies only a sampler configuration and PPC plan, not their results.",
+        "Separately records predictive validation as unavailable and SBC as infeasible; it never labels those unsupplied checks satisfactory or uses SBC as model-data-fit evidence.",
+        "Returns `unresolved` because claim-targeted predictive evidence is unavailable and records the limitation instead of accepting the model."
+      ]
+    },
+    {
+      "id": 14,
+      "prompt": "Use project-calibration-repair for a fitted Binomial appointment-attendance model that a team uses only to draw illustrative uncertainty bands in a descriptive marimo notebook. The team has declared no inferential decision, predictive use, or claim that the model should assess.",
+      "expected_output": "The skill should state that calibration repair is not applicable because, despite an explicit probability model, there is no assessable inferential or predictive claim. It must create no calibration record and return control to the calling stage's ordinary workflow.",
+      "files": [],
+      "expectations": [
+        "Because no assessable inferential or predictive claim exists, produces no calibration status, evidence-gate plan, diagnostic requirements, repair budget, or repair loop.",
+        "Does not create a calibration record even though an explicit probability model exists.",
+        "Returns the descriptive notebook to its ordinary calling workflow without requiring literal skill-name wording."
+      ]
+    },
+    {
+      "id": 15,
+      "prompt": "Use project-spec for an approved project that will fit a PyMC Poisson demand model to forecast next-week store counts. The team has an explicit predictive target, access to authorized historical data and a future holdout, candidate priors, and authority for up to two revised candidate models after the initial fit if predeclared predictive checks fail. The project’s predeclared future-holdout rules are: per-observation log predictive density must be at least -1.45; absolute error in predicted zero-count frequency must be at most 0.03; and the observed-to-predicted variance ratio must fall in [0.90, 1.10]. Persist source/data/split versions, random seeds, sampler configuration, decision rules, and predictive artifacts for each candidate.",
+      "expected_output": "The stage should retain project-spec ownership and require project-calibration-repair planning because the applicability gate is met. The spec should include authorized data access, a leakage-safe predictive protocol, model-specific diagnostic rules, reproducibility evidence, and an authorized bounded repair budget; it must not hand the specification artifact to project-calibration-repair.",
+      "files": [],
+      "expectations": [
+        "Produces a project specification that declares authorized data, leakage-safe forecast evaluation, claim-specific diagnostics, reproducibility inputs, and finite repair authority while retaining specification authorship.",
+        "Defines that later calibration assessment consumes a versioned candidate and produces a separate per-candidate record, then returns control for authorized candidate creation.",
+        "Keeps project-spec as plan author: it does not invoke assessment, create a calibration record, mutate source, select an unvalidated fix, or authorize deployment."
+      ]
+    },
+    {
+      "id": 16,
+      "prompt": "Use project-spec for an approved descriptive report that presents a Polars summary of monthly appointment no-show counts. It has no fitted probability model and makes no inferential or predictive claim.",
+      "expected_output": "The stage should retain its ordinary project-spec workflow without requiring project-calibration-repair or a calibration-plan section. It may specify the reporting project normally, but must not add calibration boilerplate for this non-model work.",
+      "files": [],
+      "expectations": [
+        "Produces only ordinary descriptive project-spec deliverables and checks.",
+        "Creates no calibration record, calibration plan, evidence gates, repair budget, or inferred probability model.",
+        "Treats this as a false-positive-resistance control rather than requiring any literal non-applicability wording."
+      ]
+    },
+    {
+      "id": 17,
+      "prompt": "Use project-implement for an approved task whose exact model change is already decided: authorized candidate revision `nb-count-r8` replaces the prior Poisson observation model in `count-r7` with a review-approved negative-binomial observation model while retaining the established group and time structure. The attached fixture contains its authorized time-ordered protocol, candidate inference run, reproducibility evidence, predeclared evidence results, calibration-record reference, and budget with one further candidate revision remaining.",
+      "expected_output": "The stage should retain implementation ownership, consume the attached candidate evidence, invoke project-calibration-repair, persist a `repair_required` record at its supplied reference because posterior predictive and held-out checks fail while inference health passes, and return control for at most one authorized next revision. It must not accept execution, finite samples, or unit tests as completion.",
+      "files": [
+        "evals/fixtures/project-calibration-repair/nb-count-r8.json"
+      ],
+      "expectations": [
+        "Uses the supplied candidate revision, inference run, protocol, reproducibility evidence, record reference, and remaining one-revision budget without requesting them again.",
+        "Returns a persisted `repair_required` record that identifies the held-out zero-mass/dispersion and predictive-calibration failures while preserving passed inference health and the declared record reference.",
+        "Retains implementation ownership and returns control for the one authorized remaining revision; it neither chooses an automatic likelihood nor claims task completion from execution, finite samples, or unit tests."
+      ]
+    },
+    {
+      "id": 18,
+      "prompt": "Use project-review to compare the current branch against main for an eligible Bayesian demand-model change with a persisted project-calibration-repair record. The record includes a holdout PPC failure for count dispersion, two divergences, missing artifact references, and no documented authorization for the data extract.",
+      "expected_output": "The stage should retain project-review ownership and inspect the calibration record conditionally. It should route PPC/model-data-fit and limitations to Scientific validity, divergences to Bayesian diagnostics, missing artifact references to Reproducibility, and authorization to Data governance; it must keep these axes separate rather than issuing one generic calibration verdict.",
+      "files": [],
+      "expectations": [
+        "Produces the project-review artifact and consumes the persisted calibration record as evidence; it does not invoke or regenerate a record, mutate source, or collapse review approval into a calibration verdict.",
+        "Routes count PPC/model-data limitations to Scientific validity, divergences/inference limitations to Bayesian diagnostics, artifact references to Reproducibility, and authorization/raw-data boundary to Data governance.",
+        "Recognizes that missing authorization and artifact prerequisites leave the calibration evidence unresolved while preserving separate review axes."
+      ]
+    },
+    {
+      "id": 19,
+      "prompt": "Use project-calibration-repair for a deterministic gradient-boosted regression service forecasting next-day store demand. The team has an assessable predictive claim and an authorized time-ordered holdout, but no likelihood, posterior, or other explicit probability model.",
+      "expected_output": "The skill should state that calibration repair is not applicable because the project lacks an explicit probability model despite having an assessable predictive claim. It must create no calibration record, evidence-gate plan, diagnostic requirements, repair budget, or repair loop, and return control to the calling stage's ordinary workflow.",
+      "files": [],
+      "expectations": [
+        "Separates an assessable predictive claim from the required explicit probabilistic model and identifies the absent model rather than inferring one from the deterministic predictor.",
+        "Creates no calibration status, record, evidence-gate plan, diagnostic requirements, repair budget, or repair loop.",
+        "Returns control to the ordinary calling workflow without requiring literal skill-name wording."
+      ]
     }
   ]
 }

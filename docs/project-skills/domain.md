@@ -17,8 +17,8 @@
 
 ## Extension boundary
 
-- Add a dedicated `calibration-repair` skill for calibration-based diagnosis and bounded repair of projects with an explicit probabilistic model and a declared inferential or predictive claim.
-- `project-spec`, `implement`, and `project-review` will delegate to that skill only when this applicability gate is met; projects without an explicit model retain their ordinary stage workflows.
+- Add a dedicated `project-calibration-repair` skill for calibration-based diagnosis and bounded repair of projects with an explicit probabilistic model and a declared inferential or predictive claim.
+- `project-spec`, `project-implement`, and `project-review` will delegate to that skill only when this applicability gate is met; projects without an explicit model retain their ordinary stage workflows.
 
 ## Explicit non-goals
 

@@ -18,12 +18,15 @@ If the spec includes modeling decisions, use `model-plan-discovery` before writi
 
 If the spec includes PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, diagnostics, posterior predictive checks, or model comparison, use `pymc-modeling` and any more specific Bayesian skill that applies.
 
+If the scoped project has an explicit probabilistic model and an assessable inferential or predictive claim, define its calibration plan in this stage. Reserve `project-calibration-repair` for evaluating a candidate revision after its fitted inference evidence exists. Do not require calibration repair for descriptive analysis, reporting-only notebooks, data engineering, deterministic transformations, or other projects without an explicit model.
+
 ## Process
 
 1. Gather existing context.
    - Read `.project-skills/config.toml` if present.
    - Read the configured domain and data docs if present.
    - Read any scoping notes or conversation artifacts the user names.
+   - Determine whether the project-calibration-repair applicability gate is met. Record why it applies when it does; otherwise retain the ordinary specification workflow without a project-calibration-repair requirement.
 2. Do not restart the interview.
    - Synthesize what is already known.
    - Ask only for missing decisions that block a coherent spec.
@@ -78,6 +81,8 @@ Define the target, estimand, metric, decision, or reporting outcome.
 State the planned approach and why it fits the target and data.
 
 For Bayesian work, include prior strategy, sampling strategy, posterior predictive checks, diagnostics, and model comparison plan when relevant.
+
+For an eligible probabilistic-model project, include the project-calibration-repair applicability decision and a calibration plan: authorized data access; an evaluation protocol appropriate to the intended use, including leakage-safe predictive validation when the claim is predictive; model-specific diagnostic statistics and decision rules; reproducibility evidence; the `calibration_record_reference` location; and the bounded repair authority/budget.
 
 ## Assumptions and risks
 

@@ -135,4 +135,5 @@ Delegate specialized work to existing oh-my-pi skills when they apply:
 - Use `prior-elicitation` for prior selection and prior predictive checks.
 - Use `model-evaluation` for LOO, ELPD, stacking, and Bayesian model comparison.
 - Use `pymc-testing` for tests touching PyMC models or sampling.
+- Use `project-calibration-repair` only when a project has an explicit probabilistic model and an assessable inferential or predictive claim; projects that fail this gate continue their ordinary workflow.
 - Use `requesting-code-review` and `verification-before-completion` before claiming implementation complete.

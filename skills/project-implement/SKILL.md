@@ -20,6 +20,8 @@ Use `requesting-code-review` when the implementation is substantial or before me
 
 Use `marimo-notebook`, `model-plan-discovery`, `pymc-modeling`, `prior-elicitation`, `model-evaluation`, or `pymc-testing` when their triggers match the task.
 
+When an approved task changes an eligible probabilistic model, use `project-calibration-repair` after the model change. Do not invoke it for work without an explicit probabilistic model and assessable inferential or predictive claim.
+
 ## Process
 
 1. Load the task.
@@ -34,6 +36,7 @@ Use `marimo-notebook`, `model-plan-discovery`, `pymc-modeling`, `prior-elicitati
    - Use the highest stable seam available.
    - For dual-track projects, keep exploration/reporting in marimo and reusable logic in Python modules.
    - For Python tabular-data work, prefer Polars over pandas unless the repo already standardizes on pandas or the task requires pandas.
+   - Determine whether the project-calibration-repair applicability gate is met. If it is, read the calibration plan’s record location and repair authority/budget; do not create a calibration record until an identifiable candidate revision and its inference evidence exist. Otherwise keep the ordinary implementation workflow.
 4. Write or update tests/checks first when feasible.
    - Use behavior tests for transformations and reusable modules.
    - Use smoke checks for notebooks or pipelines.
@@ -43,6 +46,7 @@ Use `marimo-notebook`, `model-plan-discovery`, `pymc-modeling`, `prior-elicitati
    - Run the specific tests/checks that cover the changed behavior.
    - Run notebook or pipeline smoke checks when the artifact is a notebook or pipeline.
    - Run Bayesian diagnostics when the task includes PyMC, MCMC, priors, or model comparison.
+   - When calibration repair applies to a new candidate revision, invoke `project-calibration-repair`, re-check every applicable predeclared evidence gate, and persist the returned record at the plan’s `calibration_record_reference` location. Report that reference. For `calibrated`, report the passing record; for `repair_required`, return control for only an authorized next revision without claiming completion; for `unresolved`, report the missing or unreliable evidence and do not claim completion. Execution, finite samples, and unit tests alone are not sufficient acceptance evidence.
 7. Update docs only for facts changed by this task.
 8. Report evidence.
    - Files changed.

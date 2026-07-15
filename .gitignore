@@ -1,1 +1,5 @@
 .worktrees/
+
+# Local skill-authoring evaluation environments and generated output
+.pixi/
+skills/*-workspace/
