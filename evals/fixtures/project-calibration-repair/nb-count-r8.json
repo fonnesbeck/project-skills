@@ -1,0 +1,21 @@
+{
+  "model_revision": "nb-count-r8",
+  "inference_run_id": "nuts-r8-20260710",
+  "calibration_record_reference": "artifacts/calibration/nb-count-r8.json",
+  "intended_use": "next-day store-demand prediction",
+  "authorization": "authorized",
+  "split_or_validation_design": "time-ordered holdout",
+  "data_version_or_artifact_reference": "store-demand-v7",
+  "random_seeds": [20260710],
+  "inference_configuration": "documented NUTS configuration",
+  "artifact_references": ["posterior-r8.nc", "ppc-r8.nc", "heldout-r8.parquet"],
+  "prior_predictive": "passed",
+  "inference_health": "passed",
+  "posterior_predictive": "failed: held-out zero mass and dispersion exceed predeclared tails",
+  "predictive_validation": "failed: held-out calibration degrades",
+  "sbc": "not_applicable: predictive model-data assessment is the decision target",
+  "repair_budget": {
+    "maximum_revisions": 2,
+    "revisions_used": 1
+  }
+}

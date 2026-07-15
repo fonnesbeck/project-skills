@@ -16,6 +16,28 @@ workflows must not choose artifacts or advance the project; use the next
 project-skills command only after the current command reaches its documented
 stop condition.
 
+## Probabilistic-model calibration
+
+`project-calibration-repair` is a conditional specialist for projects with an explicit
+probabilistic model and an assessable inferential or predictive claim. It is not
+a general data-science gate: descriptive analysis, reporting-only notebooks,
+data engineering, deterministic transformations, and projects without an
+explicit model continue through the ordinary workflow.
+
+When it applies, `project-spec` declares the calibration plan and its
+authorization/evaluation requirements; `project-implement` evaluates each new
+candidate revision and persists the resulting calibration record; and
+`project-review` consumes that persisted record through its applicable existing
+review axes, including reproducibility and scientific validity, plus Bayesian
+diagnostics and data governance when their existing triggers apply. The specialist
+guides structured diagnostics and bounded repair handoff; it does not select a
+model, prove causal correctness, or grant production approval.
+
+Framework-specific procedures remain in the existing Bayesian skills:
+`pymc-modeling` for sampling and diagnostics, `prior-elicitation` for prior
+predictive implications, and `model-evaluation` for LOO/ELPD and related
+predictive evaluation.
+
 ## Project classes
 
 The workflow supports three project classes:
@@ -70,6 +92,7 @@ The workflow delegates specialized knowledge instead of duplicating it. Relevant
 - `pymc-modeling`
 - `prior-elicitation`
 - `model-evaluation`
+- `project-calibration-repair` — conditional diagnosis and bounded repair handoff for eligible probabilistic models.
 - `pymc-testing`
 - `requesting-code-review`
 - `verification-before-completion`
