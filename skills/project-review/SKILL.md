@@ -16,6 +16,7 @@ Read `../shared/WORKFLOW.md` before acting.
 Use `pymc-modeling` and `model-evaluation` when the diff or spec includes PyMC, PyTensor, ArviZ, priors, MCMC, posterior predictive checks, LOO, ELPD, stacking, or Bayesian model comparison.
 
 For an eligible probabilistic-model project, inspect the persisted `project-calibration-repair` record by its reference. Do not invoke the specialist during review: it creates or updates a record and the review stage must remain read-only.
+Do not recommend regenerating, revalidating, recalibrating, or modifying that record. Report missing or defective record evidence under its owning review axis and return remediation to the authorized implementation stage.
 
 ## Process
 
@@ -64,6 +65,7 @@ When calibration repair applies, inspect the suitability of the evaluation desig
 Check prior justification, prior predictive checks, sampler configuration, convergence diagnostics, divergences, effective sample size, posterior predictive checks, log likelihood availability for comparison, and LOO/ELPD usage when models are compared.
 When calibration repair applies, inspect inference-health findings separately from model–data misfit and confirm that prior/posterior predictive and predictive-validation evidence are appropriate to the declared model and claim.
 Do not classify missing artifact references or data authorization under Bayesian diagnostics.
+Do not classify posterior predictive or held-out model-data failures under Bayesian diagnostics; route them to Scientific validity.
 
 ### Data governance
 
