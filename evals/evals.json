@@ -157,7 +157,7 @@
       "files": [],
       "expectations": [
         "Produces the project-review artifact and consumes the persisted calibration record as evidence; it does not invoke or regenerate a record, mutate source, or collapse review approval into a calibration verdict.",
-        "Routes count PPC/model-data limitations to Scientific validity, divergences/inference limitations to Bayesian diagnostics, artifact references to Reproducibility, and authorization/raw-data boundary to Data governance.",
+        "Under the designated review axes, identifies count PPC/model-data limitations in Scientific validity, divergences/inference limitations in Bayesian diagnostics, artifact references in Reproducibility, and the authorization/raw-data boundary in Data governance.",
         "Recognizes that missing authorization and artifact prerequisites leave the calibration evidence unresolved while preserving separate review axes."
       ]
     },
