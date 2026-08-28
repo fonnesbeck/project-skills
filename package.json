@@ -9,9 +9,5 @@
     "data-science",
     "project-development"
   ],
-  "omp": {
-    "skills": [
-      "./skills"
-    ]
-  }
+  "omp": {}
 }

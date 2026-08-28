@@ -11,9 +11,9 @@ An oh-my-pi-native plugin for developing data science projects from vague idea t
 5. `project-implement` executes one approved task at a time.
 6. `project-review` reviews completed work across code quality, reproducibility, and adaptive data-science axes.
 
-Each command owns only its named stage. While a command is active, generic
+Each skill owns only its named stage. While a skill is active, generic
 workflows must not choose artifacts or advance the project; use the next
-project-skills command only after the current command reaches its documented
+project-skills skill only after the current skill reaches its documented
 stop condition.
 
 ## Probabilistic-model calibration
@@ -66,10 +66,11 @@ evals/
 
 ## Install
 
-For local development, link this repo into OMP:
+For local development, run this from the repository root to link the
+repository into OMP:
 
 ```sh
-omp plugin link /var/home/fonnesbeck/repos/project-skills
+omp plugin link .
 ```
 
 Restart OMP after linking so skill discovery reloads. Verify with:
@@ -78,11 +79,11 @@ Restart OMP after linking so skill discovery reloads. Verify with:
 omp plugin list
 ```
 
-The plugin package is defined by `package.json`; OMP discovers the skills from the `omp.skills` entry pointing at `./skills`.
+The plugin package is defined by `package.json`; OMP discovers each skill from the conventional `skills/<name>/SKILL.md` layout.
 
 ## oh-my-pi integration
 
-The skills are written for oh-my-pi sessions. They refer to OMP-native tools and coordination patterns such as `read`, `grep`, `glob`, `todo`, `task`, `job`, `irc`, `lsp`, `edit`, `write`, local artifacts, and existing domain skills.
+The skills are written for oh-my-pi sessions. They refer to OMP-native tools and coordination patterns such as `read`, `grep`, `glob`, `todo`, `task`, `hub`, `lsp`, `edit`, and `write`, local artifacts, and existing domain skills.
 
 The workflow delegates specialized knowledge instead of duplicating it. Relevant domain skills include:
 

@@ -11,7 +11,7 @@ Source lineage: derived from Matt Pocock's `code-review`, adapted for oh-my-pi a
 
 ## Required background
 
-Read `../shared/WORKFLOW.md` before acting.
+Read `skill://project-skills-shared/WORKFLOW.md` before acting.
 
 Use `pymc-modeling` and `model-evaluation` when the diff or spec includes PyMC, PyTensor, ArviZ, priors, MCMC, posterior predictive checks, LOO, ELPD, stacking, or Bayesian model comparison.
 

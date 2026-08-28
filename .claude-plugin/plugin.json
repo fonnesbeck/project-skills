@@ -4,11 +4,13 @@
   "version": "0.1.0",
   "license": "MIT",
   "skills": [
-    "./skills/setup-project-skills",
-    "./skills/scoping",
+    "./skills/project-calibration-repair",
+    "./skills/project-implement",
+    "./skills/project-review",
+    "./skills/project-scoping",
+    "./skills/project-skills-setup",
+    "./skills/project-skills-shared",
     "./skills/project-spec",
-    "./skills/create-tasks",
-    "./skills/implement",
-    "./skills/project-review"
+    "./skills/project-tasks"
   ]
 }

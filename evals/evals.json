@@ -39,13 +39,13 @@
     },
     {
       "id": 7,
-      "prompt": "Use /project-scoping for a four-hour PyMC and marimo teaching-material project. The repository has a course proposal and older example notebooks. Explore the materials and scope the work, but do not write a specification or implementation plan yet.",
+      "prompt": "Use /skill:project-scoping for a four-hour PyMC and marimo teaching-material project. The repository has a course proposal and older example notebooks. Explore the materials and scope the work, but do not write a specification or implementation plan yet.",
       "expected_output": "The agent should infer research notebook as the project class, ask the user to confirm or correct that classification, explore the proposal and named source materials, ask one scoping decision at a time, and finish with the Scoping state block. It must not hand the stage off to a generic workflow, create a specification, task file, or implementation plan, or use an external workflow-owned artifact path.",
       "files": []
     },
     {
       "id": 8,
-      "prompt": "Use /project-scoping for a Bayesian analysis project. The user asks to move directly into implementation after one answer, but has not invoked or approved project-spec.",
+      "prompt": "Use /skill:project-scoping for a Bayesian analysis project. The user asks to move directly into implementation after one answer, but has not invoked or approved project-spec.",
       "expected_output": "The agent should continue or conclude the scoping stage according to the remaining fog, state whether the project is ready for project-spec, and stop. It must not create a project spec, tasks, or implementation plan, and it must not route to a generic planning or implementation workflow.",
       "files": []
     },

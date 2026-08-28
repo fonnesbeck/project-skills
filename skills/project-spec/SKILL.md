@@ -12,7 +12,7 @@ Source lineage: derived from Matt Pocock's `to-spec`, adapted for oh-my-pi and d
 
 ## Required background
 
-Read `../shared/WORKFLOW.md` before acting.
+Read `skill://project-skills-shared/WORKFLOW.md` before acting.
 
 If the spec includes modeling decisions, use `model-plan-discovery` before writing the modeling plan.
 

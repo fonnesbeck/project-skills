@@ -12,7 +12,7 @@ Source lineage: derived from Matt Pocock's `to-tickets`, adapted for oh-my-pi an
 
 ## Required background
 
-Read `../shared/WORKFLOW.md` before acting.
+Read `skill://project-skills-shared/WORKFLOW.md` before acting.
 
 ## Process
 

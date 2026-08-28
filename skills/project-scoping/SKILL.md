@@ -12,7 +12,7 @@ Source lineage: derived from Matt Pocock's `grill-with-docs` and `wayfinder`, ad
 
 ## Required background
 
-Read `../shared/WORKFLOW.md` before acting.
+Read `skill://project-skills-shared/WORKFLOW.md` before acting.
 
 If the prompt involves statistical, Bayesian, ML, or data-science modeling plans, also use `model-plan-discovery` before settling modeling details.
 
@@ -20,7 +20,7 @@ If the prompt involves PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, d
 
 ## Stage ownership
 
-When invoked as `/project-scoping`, this skill exclusively owns the scoping stage.
+When invoked as `/skill:project-scoping`, this skill exclusively owns the scoping stage.
 Other skills — including generic brainstorming, planning, specification,
 task-breakdown, or implementation workflows — may be invoked when their
 guidance helps answer the user’s actual question, but never hand the scoping
@@ -30,7 +30,7 @@ Skills invoked during scoping, including those named in Required background,
 provide subject-matter guidance only; they do not take process control,
 choose artifact paths, or replace this scoping process.
 
-During `/project-scoping`, do not create a project spec, task file, implementation
+During `/skill:project-scoping`, do not create a project spec, task file, implementation
 plan, or review. Continue to the next project-skills stage only when this
 skill has reached its stop condition and the user explicitly invokes or
 approves that stage.

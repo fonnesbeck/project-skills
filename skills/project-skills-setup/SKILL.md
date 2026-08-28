@@ -12,7 +12,7 @@ Source lineage: derived from Matt Pocock's `setup-matt-pocock-skills`, adapted f
 
 ## Required background
 
-Read `../shared/WORKFLOW.md` before acting.
+Read `skill://project-skills-shared/WORKFLOW.md` before acting.
 
 ## Process
 

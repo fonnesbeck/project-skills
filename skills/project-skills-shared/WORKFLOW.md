@@ -8,7 +8,7 @@ This plugin is derived from Matt Pocock's `mattpocock/skills` repository under t
 
 ## Workflow stage ownership
 
-A project-skills command owns its active workflow stage. It determines the
+A project-skills skill owns its active workflow stage. It determines the
 questions to ask, the artifacts it may create, and the condition for moving
 to the next stage.
 

@@ -12,7 +12,7 @@ Source lineage: derived from Matt Pocock's `implement`, adapted for oh-my-pi and
 
 ## Required background
 
-Read `../shared/WORKFLOW.md` before acting.
+Read `skill://project-skills-shared/WORKFLOW.md` before acting.
 
 Use `verification-before-completion` before claiming completion.
 
