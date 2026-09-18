@@ -1,115 +1,72 @@
 ---
 name: project-spec
-description: Use when a scoped data science conversation should be turned into a formal project spec before creating tasks or implementing work.
-disable-model-invocation: true
+description: Use to clarify a data science goal, interview for consequential decisions, and specify one bounded increment before verifier design and implementation.
 ---
 
 # Project Spec
 
-Synthesize the scoped conversation into a formal data science project spec.
+Turn the user's goal into one small, useful increment with an explicit checkpoint. Discover the goal before choosing a solution; no full-project plan or task ledger is required.
 
-Source lineage: derived from Matt Pocock's `to-spec`, adapted for oh-my-pi and data science project development.
+Source lineage: derived from Matt Pocock's `grill-with-docs`, `wayfinder`, and `to-spec`, adapted for oh-my-pi and data science project development.
 
-## Required background
+## Boundary
 
-Read `skill://project-skills-shared/WORKFLOW.md` before acting.
+Read `skill://project-skills-shared/WORKFLOW.md` first. It owns artifact routing, authority, handoff fields, stage transitions, and revision invalidation. Load matching domain skills for subject-matter guidance, not another workflow.
 
-If the spec includes modeling decisions, use `model-plan-discovery` before writing the modeling plan.
-
-If the spec includes PyMC, PyTensor, ArviZ, Bayesian modeling, priors, MCMC, diagnostics, posterior predictive checks, or model comparison, use `pymc-modeling` and any more specific Bayesian skill that applies.
-
-If the scoped project has an explicit probabilistic model and an assessable inferential or predictive claim, define its calibration plan in this stage. Reserve `project-calibration-repair` for evaluating a candidate revision after its fitted inference evidence exists. Do not require calibration repair for descriptive analysis, reporting-only notebooks, data engineering, deterministic transformations, or other projects without an explicit model.
+This stage owns discovery and specification—not source changes, environment setup, fitting, calibration records, or executable verifier design. Respect spec-only and interview-only limits; existing notes are context, not renewed authority.
 
 ## Process
 
-1. Gather existing context.
-   - Read `.project-skills/config.toml` if present.
-   - Read the configured domain and data docs if present.
-   - Read any scoping notes or conversation artifacts the user names.
-   - Determine whether the project-calibration-repair applicability gate is met. Record why it applies when it does; otherwise retain the ordinary specification workflow without a project-calibration-repair requirement.
-2. Do not restart the interview.
-   - Synthesize what is already known.
-   - Ask only for missing decisions that block a coherent spec.
-   - Ask one question at a time when blocked.
-3. Choose the output path.
-   - Default: `docs/project-skills/specs/YYYY-MM-DD-<short-name>.md`.
-   - Use configured `specs_dir` if present.
-4. Write the spec using the template below.
-5. Run a self-review.
-   - Check for unsupported assumptions.
-   - Check that data risks are explicit.
-   - Check that testing seams are named.
-   - Check that out-of-scope work is explicit.
-6. Ask the user to review the spec before `project-tasks`.
+1. **Ground discovery.** Inspect relevant instructions, source, outputs, and canonical vault context using shared routing before asking questions.
+2. **Find the goal.** Identify the consumer, decision or behavior, and useful success. Distinguish exploration, inference, prediction, and operational use when consequential; infer deliverable shape without a classification ceremony.
+3. **Resolve consequential unknowns.** Ask one focused question at a time, with a recommendation and tradeoff where useful. Resolve target meaning, data authority, scope, costs, and decision-changing assumptions. Confirm choices not already authorized; label reversible technical assumptions. Do not ask repository-answerable questions, repeat settled answers, or write a confident spec for an unclear goal.
+4. **Bound one increment.** Define inputs, outputs, non-goals, and the smallest observable end-to-end result. An access or data-understanding prerequisite can itself be the increment; state its evidentiary limits.
+5. **State acceptance intent.** Record required outcomes, constraints, rationale, and user-agreed thresholds. Leave criterion IDs, methods, evidence sources, diagnostic rules, and failure actions to verifier design. Flag requirements that block meaningful design.
+6. **Set authority and checkpoint.** Record permitted work/data/resources, stopping condition, reviewable result, and consequential decisions needed before expansion. Do not infer permission for acquisition, costly inference, publication, or deployment.
+7. **Persist and continue.** Use the shared spec location/frontmatter and handoff fields, including stable `increment_id` and identifiable `spec_revision`. Summarize decisions and blockers. Automatically continue to `project-verifier` **design** within existing authority; otherwise report the exact missing decision or stage-only stop.
 
-## Spec template
+## Conditional data-science safeguards
+
+Include only applicable safeguards; reporting and data engineering need no modeling checklist.
+
+| Area | Required specification |
+|---|---|
+| Data and claims | Target/estimand/metric; input shape and quality; access, privacy and licensing; leakage and missingness; reproducibility; causal/external-validity limits. Reference protected data, never copy raw records. |
+| Modeling | Explain the candidate and how observations inform its claim before proposing replacement. Lack of validation is not demonstrated failure; redesign requires a named flaw and supporting evidence. |
+| Forecasting | Connect forecast-origin information, horizon, and baseline. For development forecasts distinguish current ability, expected change, and unexplained variation. Justify latent-state granularity by observation support and cost. Define instant/period semantics, observation/publication lags, and which observations inform each state without future leakage. |
+
+**Calibration gate:** only an explicit probabilistic model **and** an assessable inferential/predictive claim activate `project-calibration-repair`. Specify intended use, authorized data, leakage-safe evaluation intent, decision-relevant discrepancies, and evidence/resource constraints. Assign the downstream roles explicitly in the spec: verifier design makes these requirements executable; implementation produces fitted evidence and immutable calibration records; verifier check performs read-only acceptance checking against the declared criteria. Spec issues no calibration verdict. Outside the gate, require no calibration record, budget, or loop.
+
+## Spec body
+
+Use this outline without irrelevant boilerplate; prepend shared vault plan frontmatter.
 
 ```markdown
-# <Project Name> Project Spec
+# <Increment>: specification
 
-## Problem statement
+## Goal and consumer
+Decision or observable behavior, consumer, and value.
 
-Describe the problem from the project user's perspective.
+## Bounded increment
+Inputs, outputs, deliverables, and explicit non-goals.
 
-## Project class
+## Context and decisions
+Source references, confirmed choices, reversible assumptions, data authority,
+risks, and blocking unknowns.
 
-One of: research notebook, analysis/modeling, end-to-end ML product.
+## Approach
+The smallest coherent approach; conditional modeling/forecasting rationale.
 
-State why this class was selected.
+## Acceptance intent
+Observable outcomes, constraints, rationale, and agreed thresholds.
 
-## Users and stakeholders
+## Authority and checkpoint
+Permitted work/data/resources, stopping condition, reviewable result,
+and decisions required before expansion.
 
-List the people or systems that consume the outputs.
-
-## Data sources
-
-For each source, record:
-
-- source name,
-- access path or access prerequisite,
-- schema or shape if known,
-- refresh cadence if known,
-- privacy, licensing, or governance constraints,
-- known quality issues.
-
-## Target or outcome definition
-
-Define the target, estimand, metric, decision, or reporting outcome.
-
-## Analysis or modeling approach
-
-State the planned approach and why it fits the target and data.
-
-For Bayesian work, include prior strategy, sampling strategy, posterior predictive checks, diagnostics, and model comparison plan when relevant.
-
-For an eligible probabilistic-model project, include the project-calibration-repair applicability decision and a calibration plan: authorized data access; an evaluation protocol appropriate to the intended use, including leakage-safe predictive validation when the claim is predictive; model-specific diagnostic statistics and decision rules; reproducibility evidence; the `calibration_record_reference` location; and the bounded repair authority/budget.
-State that later calibration assessment consumes a versioned candidate and its fitted inference evidence, produces the separate per-candidate record, then returns control to the authorized stage for candidate creation. This stage only declares that lifecycle; do not run assessment, create a record, mutate model source, select a repair, or authorize deployment.
-
-## Assumptions and risks
-
-List assumptions, leakage risks, causal limitations, missing-data risks, and external validity limits.
-
-## Deliverables
-
-List notebooks, Python modules, reports, models, datasets, APIs, or deployment handoff artifacts.
-
-## Testing and verification
-
-Describe layered seams:
-
-- reusable module tests,
-- notebook or pipeline smoke checks,
-- data contract checks,
-- metric or diagnostic checks,
-- reproducibility checks.
-
-## Out of scope
-
-List work that is explicitly excluded.
-
-## Open questions
-
-List only questions that remain after scoping and do not block task creation.
+## Handoff
+Applicable shared fields, including this spec's identity/revision, readiness
+or blockers, and the next authorized action.
 ```
 
-Replace `<Project Name>` and `<short-name>` with a concrete name from the scoped conversation.
+Keep scope decisions authoritative in one place. Apply shared invalidation rules after substantive revisions; return to verifier design before downstream work.

@@ -18,8 +18,11 @@ tests are implementation checks; they do not establish statistical adequacy.
 
 This skill owns calibration-specific diagnosis, repair feedback, evidence
 recording, and its bounded stopping rule. It does **not** take ownership of the
-calling workflow stage: `project-spec`, `project-implement`, and `project-review` still
-decide when the skill applies and retain their own artifacts.
+calling workflow stage: `project-spec`, `project-verifier`, and `project-implement`
+decide when it applies and retain their own artifacts. Spec and verifier design
+declare requirements without invoking assessment. Implementation invokes this
+skill and persists candidate records; verifier check consumes those records
+read-only, without invoking assessment or regenerating them.
 
 ## Applicability gate
 

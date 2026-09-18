@@ -1,111 +1,207 @@
 # Project Skills
 
-An oh-my-pi-native plugin for developing data science projects from vague idea to verified implementation.
+An oh-my-pi-native plugin for data-science work using **spec → verifier →
+environment → implement**, in small, reviewable increments.
 
-## Workflow
+The video supplies three conceptual layers. This plugin provides a persistent
+environment foundation and an incremental spec → verifier → implementation loop.
+It does not promise a speedup or treat model agreement as proof.
 
-1. `project-skills-setup` configures repo-local defaults.
-2. `project-scoping` turns a vague idea into a scoped project direction.
-3. `project-spec` writes the formal project spec.
-4. `project-tasks` breaks the spec into blocked, agent-sized tasks.
-5. `project-implement` executes one approved task at a time.
-6. `project-review` reviews completed work across code quality, reproducibility, and adaptive data-science axes.
+## Sequential workflow
 
-Each skill owns only its named stage. While a skill is active, generic
-workflows must not choose artifacts or advance the project; use the next
-project-skills skill only after the current skill reaches its documented
-stop condition.
+Before any increment, `project-environment` **foundation** can prepare the
+workspace without a spec or verifier. Foundation preparation is not permission
+or readiness to implement a product.
+
+| Order | Skill | Outcome |
+|---|---|---|
+| 1 | `project-spec` | The actual goal, explicit key decisions, and one bounded increment with a review checkpoint |
+| 2 | `project-verifier` — design | Predeclared acceptance criteria, evidence sources, checks, and failure actions |
+| 3 | `project-environment` — readiness | Check the current spec/design against the reusable foundation; refresh only affected capabilities |
+| 4 | `project-implement` | The authorized increment, real evidence, and a `project-verifier` check against that evidence |
+
+Review the result at the agreed checkpoint, adjust the next specification, and
+repeat. Reuse the environment while it remains suitable. Implementation may
+repair failures only within the authorized scope and budget; it cannot relax
+acceptance criteria to make a failing result pass.
+
+### Invocation
+
+For a new workspace, foundation setup can come first:
+
+```text
+/skill:project-environment
+Prepare the persistent foundation. No increment exists yet. Reuse our canonical
+instructions, curate authorized knowledge, and inventory skills, tools and
+permissions. Stop before specifying or implementing a product.
+```
+
+Start with a goal, not just a deliverable:
+
+```text
+/skill:project-spec
+Help me determine what clinic managers need to decide from our monthly
+no-show report. Interview me about unresolved decisions, then specify the
+smallest useful increment. Stop before implementation.
+```
+
+Once that increment is agreed:
+
+```text
+/skill:project-verifier
+Design the verifier for the agreed spec. Define the evidence and decision
+rules before any implementation changes.
+```
+
+```text
+/skill:project-environment
+Check readiness for that spec and verifier against the existing foundation.
+Reuse knowledge and tooling. Distinguish advisory rules from enforced controls.
+```
+
+```text
+/skill:project-implement
+Implement the authorized increment using its verifier and environment
+record, then run project-verifier in check mode. Stop at the agreed checkpoint.
+```
+
+Provide artifact references or use those already in the conversation.
+All four public skills allow model invocation, so an authorized full increment
+can proceed without repeated approval at mechanical handoffs. Explicit stage
+limits, readiness requirements, and human checkpoints still apply. Skill
+instructions are not a runtime-enforced state machine or permission system.
+
+## What verification means
+
+A verifier is designed **before** implementation and applied **afterward** to an
+identifiable revision. Each criterion has a method, evidence source, decision
+rule, and failure action. Missing or stale evidence is unresolved, not passed.
+Subjective requirements identify a human reviewer and rubric rather than pretend
+to be machine-checkable.
+
+For an explicit independent-review request, `project-verifier` delegates to an
+OMP `reviewer` task in a fresh context. The critic receives the fixed target,
+criteria, authorized evidence, and read-only limits. The parent records findings
+and evidence-backed dispositions; it does not simply count votes.
+
+A different configured model is preferred when available. A fresh session using
+the same model is agent-independent, not cross-model review. An unavailable
+required critic remains unresolved; no plugin is installed automatically.
+
+Use actual commands, data checks, rendered outputs, service observations, or
+human judgments to establish results. Spec or verifier changes invalidate
+dependent readiness and acceptance; historical evidence retains its revision.
+
+Code quality and reproducibility remain distinct from scientific validity,
+Bayesian diagnostics, data governance, and deployment readiness. Passing code
+tests alone does not establish a scientific conclusion or production readiness.
+
+## Persistent environment
+
+`project-environment` has two modes:
+
+- **Foundation:** prepare persistent instructions, knowledge, skills, tooling,
+  and permission facts without requiring an increment.
+- **Readiness:** verify capabilities for the current spec/design, keeping that
+  revision binding separate from foundation status in the same environment record.
+
+When authorized, foundation preparation adds missing verification-before-build
+guidance to the existing instruction source, curates material into established
+knowledge stores, and creates a narrow skill for an observed recurring workflow.
+New skills must be loaded and replayed, not merely written. The knowledge index
+points to real material; neither the index nor those files train the model.
+
+External feedback checks inspect actual observations. For deployment, connectivity,
+running revision, and application behavior are separate questions; HTTP 200 alone
+is not proof of a successful deployment.
+
+Actions are classified as **always permitted**, **ask first**, or **never
+permitted**, within the user's authority. Prompt instructions are advisory.
+Hard restrictions require real controls and checks covering the relevant access
+routes. A hook on write/edit tools alone does not prevent shell or alternate-tool
+writes. Unsupported controls are reported, not fabricated.
+
+## Artifacts
+
+Workflow documents use the existing canonical project in the **Agents Obsidian
+vault**, following its identity, filename, frontmatter, and status conventions:
+
+- `Plans/`: increment specifications.
+- `Docs/`: verifier designs, persistent environment records, and per-revision
+  verification reports.
+- Declared authorized artifact stores: calibration records and raw evidence,
+  referenced rather than duplicated in workflow documents.
+
+The skills resolve existing project identity before writing. They do not create
+repository-local workflow configuration or a second documentation tree. Existing
+project notes are reused, and prior workflow artifacts can supply context without
+authorizing new work. Skill definitions and evaluation fixtures themselves are
+plugin product assets and remain in this repository.
 
 ## Probabilistic-model calibration
 
-`project-calibration-repair` is a conditional specialist for projects with an explicit
-probabilistic model and an assessable inferential or predictive claim. It is not
-a general data-science gate: descriptive analysis, reporting-only notebooks,
-data engineering, deterministic transformations, and projects without an
-explicit model continue through the ordinary workflow.
+`project-calibration-repair` remains a conditional specialist for an **explicit
+probabilistic model with an assessable inferential or predictive claim**.
+Descriptive analysis, reporting-only notebooks, data engineering, and deterministic
+transformations do not acquire artificial calibration requirements.
 
-When it applies, `project-spec` declares the calibration plan and its
-authorization/evaluation requirements; `project-implement` evaluates each new
-candidate revision and persists the resulting calibration record; and
-`project-review` consumes that persisted record through its applicable existing
-review axes, including reproducibility and scientific validity, plus Bayesian
-diagnostics and data governance when their existing triggers apply. The specialist
-guides structured diagnostics and bounded repair handoff; it does not select a
-model, prove causal correctness, or grant production approval.
+- The spec records the claim and constraints.
+- Verifier design declares model-specific checks and decision rules.
+- Implementation gathers fitted evidence, invokes the specialist, and persists
+  each candidate's calibration record under finite repair authority.
+- Verifier check inspects that record read-only and reports applicable findings;
+  it does not regenerate the record or mutate the model.
 
-Framework-specific procedures remain in the existing Bayesian skills:
-`pymc-modeling` for sampling and diagnostics, `prior-elicitation` for prior
-predictive implications, and `model-evaluation` for LOO/ELPD and related
-predictive evaluation.
-
-## Project classes
-
-The workflow supports three project classes:
-
-- Research notebook projects.
-- Analysis/modeling projects.
-- End-to-end ML products.
-
-`project-scoping` infers the class from the user's goal, artifacts, data risks, and implementation needs, then asks the user to confirm or correct it.
-
-## Defaults
-
-The plugin defaults to local markdown artifacts:
-
-```text
-.project-skills/config.toml
-docs/project-skills/domain.md
-docs/project-skills/data.md
-docs/project-skills/specs/
-docs/project-skills/tasks/
-docs/project-skills/reviews/
-evals/
-```
-
-`project-skills-setup` can override these paths for a repo.
+Framework-specific guidance stays in applicable skills such as `pymc-modeling`,
+`prior-elicitation`, `model-evaluation`, and `pymc-testing`. Calibration is not
+model selection, proof of causal correctness, or deployment approval.
 
 ## Install
 
-For local development, run this from the repository root to link the
-repository into OMP:
+From the repository root:
 
 ```sh
 omp plugin link .
 ```
 
-Restart OMP after linking so skill discovery reloads. Verify with:
+Restart OMP to reload discovery, then verify:
 
 ```sh
 omp plugin list
 ```
 
-The plugin package is defined by `package.json`; OMP discovers each skill from the conventional `skills/<name>/SKILL.md` layout.
+OMP discovers skills from `skills/<name>/SKILL.md` using `package.json`.
+`.claude-plugin/plugin.json` also lists the same six skill directories: four
+workflow stages, the calibration specialist, and hidden shared support.
 
-## oh-my-pi integration
+## Version 0.2 cutover
 
-The skills are written for oh-my-pi sessions. They refer to OMP-native tools and coordination patterns such as `read`, `grep`, `glob`, `todo`, `task`, `hub`, `lsp`, `edit`, and `write`, local artifacts, and existing domain skills.
+This replaces the former setup → scoping → specification → task graph →
+implementation → review pipeline:
 
-The workflow delegates specialized knowledge instead of duplicating it. Relevant domain skills include:
+- Goal discovery is part of `project-spec`.
+- Workspace setup is part of `project-environment`.
+- Review responsibilities move to `project-verifier` check mode, with evaluation
+  criteria established in design mode before work begins.
+- Implementation works from the bounded spec and verifier, not a separate
+  approved task graph.
 
-- `marimo-notebook`
-- `marimo-pair`
-- `model-plan-discovery`
-- `pymc-modeling`
-- `prior-elicitation`
-- `model-evaluation`
-- `project-calibration-repair` — conditional diagnosis and bounded repair handoff for eligible probabilistic models.
-- `pymc-testing`
-- `requesting-code-review`
-- `verification-before-completion`
+The retired entrypoints are removed rather than retained as aliases. Existing
+user documents are not deleted or automatically migrated. Restart installed
+sessions before invoking the new skills.
+
+## Evaluations
+
+`evals/evals.json` contains behavioral scenarios for the workflow and the
+calibration specialist. Scenarios are evaluation inputs and expected behaviors,
+not proof that a model passed them. `evals/fixtures/` holds supplied evidence for
+integration scenarios. Run skills against the scenarios in an isolated session;
+report actual observed behavior separately from structural/discovery checks.
 
 ## Attribution
 
-This plugin is derived from Matt Pocock's `mattpocock/skills` repository under the MIT License. It adapts these source skills for data science project development and oh-my-pi:
-
-- `setup-matt-pocock-skills`
-- `grill-with-docs`
-- `wayfinder`
-- `to-spec`
-- `to-tickets`
-- `implement`
-- `code-review`
+The previous implementation was derived from Matt Pocock's `mattpocock/skills`
+repository under the MIT License, adapting setup, discovery, specification,
+ticketing, implementation, and review skills for data science and oh-my-pi.
+Retained safeguards build on that lineage. The current workflow is inspired by
+the linked spec/verifier/environment video.

@@ -1,16 +1,14 @@
 {
   "name": "project-skills",
-  "description": "OMP-native data science project development skills",
-  "version": "0.1.0",
+  "description": "Sequential spec, verifier, environment and implementation skills for data science",
+  "version": "0.2.0",
   "license": "MIT",
   "skills": [
-    "./skills/project-calibration-repair",
-    "./skills/project-implement",
-    "./skills/project-review",
-    "./skills/project-scoping",
-    "./skills/project-skills-setup",
-    "./skills/project-skills-shared",
     "./skills/project-spec",
-    "./skills/project-tasks"
+    "./skills/project-verifier",
+    "./skills/project-environment",
+    "./skills/project-implement",
+    "./skills/project-calibration-repair",
+    "./skills/project-skills-shared"
   ]
 }
