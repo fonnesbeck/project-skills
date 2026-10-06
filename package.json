@@ -1,7 +1,7 @@
 {
   "name": "project-skills",
   "version": "0.2.0",
-  "description": "Sequential spec, verifier, environment and implementation skills for data science",
+  "description": "Sequential data science workflow skills with compact visual explanations",
   "license": "MIT",
   "keywords": [
     "omp-plugin",

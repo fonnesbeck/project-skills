@@ -1,6 +1,6 @@
 {
   "name": "project-skills",
-  "description": "Sequential spec, verifier, environment and implementation skills for data science",
+  "description": "Sequential data science workflow skills with compact visual explanations",
   "version": "0.2.0",
   "license": "MIT",
   "skills": [
@@ -9,6 +9,7 @@
     "./skills/project-environment",
     "./skills/project-implement",
     "./skills/project-calibration-repair",
+    "./skills/show-me",
     "./skills/project-skills-shared"
   ]
 }

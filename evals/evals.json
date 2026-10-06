@@ -483,6 +483,61 @@
         "Does not change the data to make the replay pass, install a bundle, download dependencies, widen access or claim a fabricated execution result.",
         "Records the actual skill and replay evidence in the persistent foundation while leaving increment readiness unassessed and honoring the foundation-only scope."
       ]
+    },
+    {
+      "id": 44,
+      "prompt": "Use show-me to explain this descriptive reporting pipeline, in chat only. Supplied design: appointments has one row per appointment; clinics has one row per clinic_id; join appointments to clinics on clinic_id, exclude cancelled appointments, and aggregate missed and eligible appointment counts by clinic and month. Rate means missed / eligible. The actual data and row counts are not supplied. Raw patient rows are restricted and must not be requested or displayed. No prediction model is part of this report.",
+      "expected_output": "A compact schematic lineage visual preserves observation units, the many-to-one join requirement, cancellation exclusion, aggregation and denominator. It identifies its source as the supplied design, leaves row counts unknown, and stays a read-only descriptive explanation without workflow prerequisites or modeling requirements.",
+      "files": [],
+      "expectations": [
+        "Shows appointment-level input, clinic_id join cardinality, cancellation exclusion, clinic-month aggregation and the missed/eligible denominator in a compact visual.",
+        "Labels the structure as supplied design or schematic, does not invent measured counts or a successful execution, and does not solicit or expose patient rows.",
+        "Does not require a spec, create artifacts, execute an analysis, or impose a predictive model or calibration assessment."
+      ]
+    },
+    {
+      "id": 45,
+      "prompt": "Use show-me to explain why our proposed next-week demand evaluation leaks information, not to fix files or run it. We scale all rows before splitting. Features include receipts whose event_date is before forecast origin t but which are only published at t+2 days. The model issues forecasts at t for days t+1 through t+7. We randomly split rows across the whole year. Show the current problems and a proposed time-respecting alternative without claiming that its score improves.",
+      "expected_output": "A timeline or focused before/after visual identifies preprocessing leakage, publication-time leakage despite earlier event dates, and future observations entering random-split training. The proposed view fits preprocessing only in training, uses features available at each origin, and preserves the forecast horizon. It claims no executed repair or performance benefit.",
+      "files": [],
+      "expectations": [
+        "Distinguishes event time from availability and excludes receipts published at t+2 from a forecast issued at t.",
+        "Visually places fitted preprocessing inside training and a proposed evaluation after the training origin while preserving the t+1 through t+7 target.",
+        "Labels the alternative proposed, reports no measured improvement, changes no files, and starts no fit or evaluation."
+      ]
+    },
+    {
+      "id": 46,
+      "prompt": "Use show-me to compare two candidate demand models. Model A has reported RMSE 8 units on a random-row split for a one-day horizon. Model B has reported MAE 6 units on a later time holdout for a seven-day horizon. No predictions, sample sizes or uncertainty estimates are available. I want a visual explanation of whether B is better, not a new analysis. Do not invent comparable scores or error bars.",
+      "expected_output": "A compact table preserves each reported metric, horizon and split, labels uncertainty unavailable, and makes clear that these scores do not support ranking the candidates. It identifies a matched evaluation as the missing evidence without executing one or converting RMSE to MAE.",
+      "files": [],
+      "expectations": [
+        "Preserves RMSE 8 with the random-row one-day protocol and MAE 6 with the later time-held-out seven-day protocol.",
+        "Explains metric and protocol incompatibility rather than declaring B better because 6 is less than 8.",
+        "Marks uncertainty unavailable, fabricates no scores or intervals, and neither fits models nor requires calibration records merely to explain the comparison."
+      ]
+    },
+    {
+      "id": 47,
+      "prompt": "Use show-me for a visual explanation of this supplied observational hierarchical analysis, in chat only. The model partially pools clinic coefficients through population parameters. The report gives the posterior mean treatment coefficient as 1.1 outcome units and its 95% posterior credible interval as [-0.3, 2.5]. No posterior predictive interval, causal identification argument, or sampler diagnostics were provided. Show what the estimate and interval mean and whether they establish that intervening on treatment improves outcomes.",
+      "expected_output": "A compact labeled model sketch or estimate table separates supplied posterior parameter uncertainty from unprovided predictive uncertainty, makes partial pooling visible if drawing the model, and does not equate generative dependence with causal identification. It states that the supplied result alone establishes neither intervention benefit nor reliable inference diagnostics.",
+      "files": [],
+      "expectations": [
+        "Accurately labels 1.1 as a reported posterior mean and [-0.3, 2.5] as a 95% posterior credible interval for the coefficient, not a confidence or outcome predictive interval.",
+        "Does not claim a positive causal intervention effect or invent a predictive interval or passing diagnostics; if arrows are used, their meaning is explicit rather than implicitly causal.",
+        "Uses a compact visual grounded in the supplied report and stays within chat-only explanation without fitting, calibration repair or workflow handoffs."
+      ]
+    },
+    {
+      "id": 48,
+      "prompt": "The current discussion is a proposed descriptive notebook change: aggregate counts are loaded, validated, grouped by month, and plotted. The proposal inserts a source-total reconciliation after grouping and before plotting; plotting depends on successful reconciliation. No notebook was executed and no source paths were supplied. My next message is simply: show me. Restate this current discussion visually; do not implement anything.",
+      "expected_output": "A focused proposed analysis diff or dependency sketch shows the reconciliation between aggregation and plotting and preserves its blocking dependency. It resolves the short request from context rather than asking what to show, inventing file paths or writing a notebook.",
+      "files": [],
+      "expectations": [
+        "Visually places source-total reconciliation after monthly grouping and makes plotting conditional on successful reconciliation.",
+        "Identifies the change as proposed, claims no executed notebook or verified totals, and invents no source paths.",
+        "Uses the current topic without asking for information already supplied and does not create a notebook, spec, report or implementation plan."
+      ]
     }
   ]
 }

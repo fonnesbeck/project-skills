@@ -1,7 +1,8 @@
 # Project Skills
 
 An oh-my-pi-native plugin for data-science work using **spec → verifier →
-environment → implement**, in small, reviewable increments.
+environment → implement**, in small, reviewable increments, with compact visual
+explanations through `show-me`.
 
 The video supplies three conceptual layers. This plugin provides a persistent
 environment foundation and an incremental spec → verifier → implementation loop.
@@ -66,10 +67,40 @@ record, then run project-verifier in check mode. Stop at the agreed checkpoint.
 ```
 
 Provide artifact references or use those already in the conversation.
-All four public skills allow model invocation, so an authorized full increment
+All four workflow-stage skills allow model invocation, so an authorized full increment
 can proceed without repeated approval at mechanical handoffs. Explicit stage
 limits, readiness requirements, and human checkpoints still apply. Skill
 instructions are not a runtime-enforced state machine or permission system.
+
+## Visual explanations
+
+`show-me` is an optional explanation aid, not another workflow stage. Use it
+before a spec exists or during any stage to see the current question as a compact
+visual rather than a long prose answer.
+
+```text
+/skill:show-me
+Show how our appointment data become clinic-month no-show rates. Include the
+observation unit, join cardinality, exclusions, and denominator.
+```
+
+```text
+/skill:show-me
+Show where our forecasting split leaks future information, and sketch the
+proposed correction without running or changing the analysis.
+```
+
+With an established topic, `/skill:show-me` alone asks for a visual restatement.
+The skill chooses a data-lineage flow, model sketch, validation timeline,
+uncertainty or comparison table, notebook-dependency map, or focused analysis
+diff. It distinguishes reported results from proposed or schematic content,
+preserves interval meanings, and does not turn predictive associations into
+causal claims.
+
+The default is read-only output in chat: no fitting, notebook execution, file
+creation, or workflow handoff. Requested computed figures use authorized data
+and the existing plotting stack; missing evidence stays explicit rather than
+becoming invented scores, curves, or error bars.
 
 ## What verification means
 
@@ -171,8 +202,8 @@ omp plugin list
 ```
 
 OMP discovers skills from `skills/<name>/SKILL.md` using `package.json`.
-`.claude-plugin/plugin.json` also lists the same six skill directories: four
-workflow stages, the calibration specialist, and hidden shared support.
+`.claude-plugin/plugin.json` also lists the same seven skill directories: four
+workflow stages, the calibration specialist, `show-me`, and hidden shared support.
 
 ## Version 0.2 cutover
 
@@ -192,9 +223,11 @@ sessions before invoking the new skills.
 
 ## Evaluations
 
-`evals/evals.json` contains behavioral scenarios for the workflow and the
-calibration specialist. Scenarios are evaluation inputs and expected behaviors,
-not proof that a model passed them. `evals/fixtures/` holds supplied evidence for
+`evals/evals.json` contains behavioral scenarios for the workflow, calibration
+specialist, and `show-me`. Scenarios are evaluation inputs and expected behaviors,
+not proof that a model passed them. The visual-explanation cases cover descriptive
+lineage, temporal leakage, incompatible model comparisons, uncertainty and causal
+limits, and context-only notebook changes. `evals/fixtures/` holds supplied evidence for
 integration scenarios. Run skills against the scenarios in an isolated session;
 report actual observed behavior separately from structural/discovery checks.
 
@@ -205,3 +238,7 @@ repository under the MIT License, adapting setup, discovery, specification,
 ticketing, implementation, and review skills for data science and oh-my-pi.
 Retained safeguards build on that lineage. The current workflow is inspired by
 the linked spec/verifier/environment video.
+
+`show-me` is inspired by Dex / HumanLayer's
+[compact visual explanation skill](https://www.humanlayer.com/blog/show-me-skill),
+with original data-science guidance and examples for this plugin.
