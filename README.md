@@ -102,6 +102,35 @@ creation, or workflow handoff. Requested computed figures use authorized data
 and the existing plotting stack; missing evidence stays explicit rather than
 becoming invented scores, curves, or error bars.
 
+## Retrospectives
+
+`project-retro` is an explicitly invoked companion, not another required stage.
+It reviews agent workflow and scientific practice using the current session and
+directly related same-project history. Findings require observed problems, not
+generic missing-tooling concerns. Inspection does not execute analyses or fixes.
+
+```text
+/skill:project-retro
+Review this increment and related sessions for workflow and scientific-practice
+problems. Save the findings, then ask which fixes I want implemented.
+```
+
+By default it saves an evidence-linked review in the canonical vault's
+`Docs/YYYY-MM-DD-<topic>-retro.md` and summarizes it in chat. A named session/range
+narrows the review; an explicit chat-only request suppresses the saved report.
+Unavailable history is a coverage limit, never an invented session assessment.
+Historical transcripts and recaps remain unchanged; corrections belong in the
+review, and proposed fixes must address future behavior.
+
+Select proposed finding IDs to authorize fixes. Instruction edits require explicit
+approval of their proposed wording and destination. Changes to scientific claims,
+protocols, models, or product behavior use the existing spec/verifier/environment/
+implementation boundaries; selecting a fix does not waive those prerequisites.
+The report records selections, actual verification, and any blocked work.
+Vault identity and report conventions come from the shared workflow. For
+startup-loaded instruction edits, a successful mid-session replay is reported as
+“verified in-session only”; normal startup behavior requires a fresh-session replay.
+
 ## What verification means
 
 A verifier is designed **before** implementation and applied **afterward** to an
@@ -202,8 +231,8 @@ omp plugin list
 ```
 
 OMP discovers skills from `skills/<name>/SKILL.md` using `package.json`.
-`.claude-plugin/plugin.json` also lists the same seven skill directories: four
-workflow stages, the calibration specialist, `show-me`, and hidden shared support.
+`.claude-plugin/plugin.json` also lists the same eight skill directories: four
+workflow stages, calibration, `show-me`, `project-retro`, and hidden shared support.
 
 ## Version 0.2 cutover
 
@@ -224,12 +253,16 @@ sessions before invoking the new skills.
 ## Evaluations
 
 `evals/evals.json` contains behavioral scenarios for the workflow, calibration
-specialist, and `show-me`. Scenarios are evaluation inputs and expected behaviors,
-not proof that a model passed them. The visual-explanation cases cover descriptive
-lineage, temporal leakage, incompatible model comparisons, uncertainty and causal
-limits, and context-only notebook changes. `evals/fixtures/` holds supplied evidence for
-integration scenarios. Run skills against the scenarios in an isolated session;
-report actual observed behavior separately from structural/discovery checks.
+specialist, `show-me`, and `project-retro`. Scenarios are evaluation inputs and
+expected behaviors, not proof that a model passed them. Retrospective cases cover
+primary-evidence limits, archived instructions, selected-fix authority, scientific
+routing, canonical-identity failures, in-session versus fresh-session instruction
+verification, and a valid no-findings result. The visual-explanation cases cover
+descriptive lineage, temporal leakage, incompatible model comparisons, uncertainty
+and causal limits, and context-only notebook changes. `evals/fixtures/` holds
+supplied evidence for integration scenarios. Run skills against the scenarios in
+an isolated session; report actual observed behavior separately from
+structural/discovery checks.
 
 ## Attribution
 
@@ -242,3 +275,8 @@ the linked spec/verifier/environment video.
 `show-me` is inspired by Dex / HumanLayer's
 [compact visual explanation skill](https://www.humanlayer.com/blog/show-me-skill),
 with original data-science guidance and examples for this plugin.
+
+`project-retro` adapts Matt Pocock's
+[`retro` skill](https://github.com/mattpocock/skills/tree/main/skills/engineering/retro)
+for this workflow. Its upstream MIT copyright and permission notice are retained
+in [`skills/project-retro/LICENSE`](skills/project-retro/LICENSE).

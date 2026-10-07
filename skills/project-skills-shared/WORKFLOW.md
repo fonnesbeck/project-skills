@@ -51,9 +51,9 @@ Foundation records omit increment-specific fields and explicitly state that incr
 
 ## Canonical artifacts
 
-Before agent-document access, inspect `~/Documents/Agents/Projects/` and run `agent-docs locate <working-path>` as a lookup. Match the result to existing project identity; do not create duplicates.
+Before project work, run `agent-docs ensure <repo-path>` and use the directory it returns; reuse a successful resolution already obtained for this repository in the current session. This is the shared resolution procedure for every skill, including optional companions. It may register or create the canonical project, or reuse an existing identity, under the global instructions and `~/Documents/Agents/System/Conventions.md`; do not invent another project or documentation tree.
 
-Follow `~/Documents/Agents/System/Conventions.md`. Use `ensure --migrate` only after confirming the canonical destination. If lookup is unavailable, use an established destination; ask only if identity remains unresolved.
+Read those conventions before creating or updating a vault document; they own registration, migration authority, filenames, and frontmatter. If resolution fails or the tool is unavailable, report the actual failure verbatim and block unresolved document access/writes rather than guess or fall back to a different destination. Continue independent work from available context; ask for the missing identity/tool prerequisite when needed.
 
 | Artifact under the canonical project | Type |
 |---|---|
@@ -61,6 +61,7 @@ Follow `~/Documents/Agents/System/Conventions.md`. Use `ensure --migrate` only a
 | `Docs/YYYY-MM-DD-<increment>-verifier.md` | Reference document |
 | `Docs/YYYY-MM-DD-<project>-environment.md` | Persistent reference document; reuse existing file |
 | `Docs/YYYY-MM-DD-<increment>-verification-<revision>.md` | Review document; distinct revision/run identifier |
+| `Docs/YYYY-MM-DD-<topic>-retro.md` | Review document (`kind: review`); optional retrospective |
 
 Use vault frontmatter. Plans follow `draft` → `approved` → `in-progress` → `completed`; replacements use `superseded` and `superseded_by`. Documents use `current` or `superseded`. Stage outcomes belong in the body; written code alone does not complete a plan.
 
