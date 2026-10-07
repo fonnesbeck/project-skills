@@ -2,7 +2,8 @@
 
 An oh-my-pi-native plugin for data-science work using **spec → verifier →
 environment → implement**, in small, reviewable increments, with compact visual
-explanations through `show-me`.
+explanations through `show-me` and explicitly invoked retrospectives through
+`project-retro`.
 
 The video supplies three conceptual layers. This plugin provides a persistent
 environment foundation and an incremental spec → verifier → implementation loop.
@@ -71,6 +72,84 @@ All four workflow-stage skills allow model invocation, so an authorized full inc
 can proceed without repeated approval at mechanical handoffs. Explicit stage
 limits, readiness requirements, and human checkpoints still apply. Skill
 instructions are not a runtime-enforced state machine or permission system.
+
+## Sample workflow: a monthly no-show report
+
+Suppose a project has an authorized clinic-month aggregate CSV and an existing
+marimo notebook. Clinic managers want to identify months that warrant closer
+investigation, not predict individual attendance. This example describes proposed
+work, not an executed analysis; use the actual input and notebook references from
+your project.
+
+### 1. Agree on one useful increment
+
+```text
+/skill:project-spec
+Help clinic managers compare monthly no-show rates using our authorized
+clinic-month aggregates. Inspect the existing notebook and data documentation,
+then interview me about the decision, denominator, exclusions, and missing data.
+Scope one descriptive increment: counts, rates, and a clear account of limitations.
+No patient-level data, predictive model, or causal claims. Stop after the spec.
+```
+
+Resolve the questions before approving the spec. For this example, suppose the
+agreed input contains `clinic_id`, `month`, `eligible`, and `missed`; cancelled
+appointments are already excluded. Rates use `missed / eligible`, and a zero
+denominator must display as unavailable, not as a zero rate.
+
+An optional visual check can expose misunderstandings before implementation:
+
+```text
+/skill:show-me
+Sketch how the agreed aggregate inputs become counts and rates in the notebook.
+Show the denominator and zero-eligible case. Keep it schematic and in chat;
+do not execute or change the analysis.
+```
+
+### 2. Authorize the bounded implementation
+
+```text
+I approve this descriptive increment. Use the saved spec and proceed through
+verifier design, environment readiness, implementation, and verifier check.
+Prepare or refresh the environment foundation only as needed. Reuse the existing
+project environment; ask before any dependency installation or new data access.
+Change only the agreed notebook and its supporting validation code. I authorize
+one bounded repair attempt under the unchanged acceptance criteria.
+Stop at the verification checkpoint, or ask if scope or criteria need to change.
+```
+
+Within that authority, the skills proceed without repeated approval at each
+mechanical handoff:
+
+| Stage | Concrete work in this example |
+|---|---|
+| `project-verifier` design | Predeclare source-total reconciliation, count validity, rate and zero-denominator behavior, notebook execution, and a human review rubric for interpretability. |
+| `project-environment` readiness | Check the current spec/design against the existing environment, authorized CSV access, notebook tooling, and permitted changes. |
+| `project-implement` | Update the agreed surface, exercise the declared cases, execute and inspect the notebook, and preserve evidence for the identified revision. |
+| `project-verifier` check | Assess that evidence against the unchanged criteria; distinguish failures, missing evidence, and pending human review from passes. |
+
+The spec belongs in the canonical vault's `Plans/`; the verifier design,
+environment record, and verification report belong in `Docs/`. Notebook/code
+changes stay in the repository, and data and execution evidence stay in their
+authorized stores. No calibration record is needed for this descriptive work.
+A successful notebook run alone does not satisfy the interpretability review;
+the designated reviewer must record a disposition.
+
+### 3. Review the working process separately
+
+After the checkpoint, explicitly invoke the optional retrospective:
+
+```text
+/skill:project-retro
+Review this reporting increment and directly related sessions. Identify observed
+workflow or scientific-practice problems, distinguishing already-fixed issues.
+Save the review in the canonical vault and ask which proposed fixes to implement.
+Do not treat this request as approval to change instructions or rerun the analysis.
+```
+
+Select only the proposals you want applied. The retrospective updates its report
+with their dispositions and verification; a new analytical goal starts another
+bounded increment rather than extending this one implicitly.
 
 ## Visual explanations
 
@@ -183,20 +262,22 @@ writes. Unsupported controls are reported, not fabricated.
 
 ## Artifacts
 
-Workflow documents use the existing canonical project in the **Agents Obsidian
-vault**, following its identity, filename, frontmatter, and status conventions:
+Workflow documents use the canonical project in the **Agents Obsidian vault**,
+following its identity, filename, frontmatter, and status conventions:
 
 - `Plans/`: increment specifications.
-- `Docs/`: verifier designs, persistent environment records, and per-revision
-  verification reports.
+- `Docs/`: verifier designs, persistent environment records, per-revision
+  verification reports, and retrospective reviews.
 - Declared authorized artifact stores: calibration records and raw evidence,
   referenced rather than duplicated in workflow documents.
 
-The skills resolve existing project identity before writing. They do not create
-repository-local workflow configuration or a second documentation tree. Existing
-project notes are reused, and prior workflow artifacts can supply context without
-authorizing new work. Skill definitions and evaluation fixtures themselves are
-plugin product assets and remain in this repository.
+The shared workflow resolves project identity with `agent-docs ensure <repo-path>`,
+reusing a successful resolution for this repository in the current session.
+Resolution may reuse, register, or create the canonical vault project; it does
+not create repository-local workflow configuration or a second documentation tree.
+Existing project notes are reused, and prior workflow artifacts can supply context
+without authorizing new work. Skill definitions and evaluation fixtures themselves
+are plugin product assets and remain in this repository.
 
 ## Probabilistic-model calibration
 
